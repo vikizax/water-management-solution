@@ -33,19 +33,23 @@ If there are additional guests in the apartment, the total allotted water will n
 
 - ALLOT_WATER apartment-type ratio
 
-        Allots the water from corporation and borewell based on the apartment type and ratio passed. Here the ratio is always of the format Corporation Water : Borewell Water. This command will be executed only once a month per house and also at the start of the input command set.
+        Allots the water from corporation and borewell based on the apartment type 
+        and ratio passed. Here the ratio is always of the format Corporation Water : Borewell Water. 
+        This command will be executed only once a month per house and also at the start of the input command set.
 
         Example- ALLOT_WATER 3 1:5
 
 - ADD_GUESTS no_of_guests
 
-        Adds the number of guests to a house. ADD_GUESTS command can be given multiple times in a month and total guests is the sum of all ADD_GUESTS numbers for that month.
+        Adds the number of guests to a house. ADD_GUESTS command can be given multiple times in a month 
+        and total guests is the sum of all ADD_GUESTS numbers for that month.
         
         Example - ADD_GUESTS 10
 
 - BILL
 
-        Prints the total water consumed in litres and the total cost, after cumulatively adding up all the guests cost to the bill. This command will be executed only once and at the end of the input set.
+        Prints the total water consumed in litres and the total cost, after cumulatively adding up 
+        all the guests cost to the bill. This command will be executed only once and at the end of the input set.
         It should print the total water consumption and the cost in the format
         'TOTAL_WATER_CONSUMED_IN_LITERS TOTAL_COST'
         
