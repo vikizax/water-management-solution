@@ -1,3 +1,11 @@
+# Run code
+    
+- run default 
+    
+        npm start 
+ - run in cron mode
+        
+        npm run cron
 # Problem Statement
 [SOURCE LINK]('https://www.geektrust.com/coding/detailed/water-management')
 
