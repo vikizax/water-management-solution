@@ -7,7 +7,7 @@
         
         npm run cron
 # Problem Statement
-[SOURCE LINK]('https://www.geektrust.com/coding/detailed/water-management')
+[SOURCE LINK](https://www.geektrust.com/coding/detailed/water-management)
 
 You work at WaterBill, a startup developing smart solutions for water management.
 
