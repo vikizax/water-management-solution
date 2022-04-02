@@ -4,10 +4,9 @@
   "description": "Water Management Problem Statement Solution",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node .",
-    "repl": "ts-node ./repl.ts",
-    "cron": "ts-node ./cron-process.ts",
-    "build": "tsc"
+    "start": "node geektrust.js",
+    "install": "tsc",
+    "test": "jest"
   },
   "author": "vikizax",
   "license": "MIT",
@@ -16,7 +15,10 @@
     "url": "https://github.com/vikizax/water-management-solution"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.1",
     "@types/node": "^17.0.23",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   },
