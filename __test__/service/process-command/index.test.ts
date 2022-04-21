@@ -58,7 +58,7 @@ describe('Process Command Service Test', () => {
         processComamnd(waterManagement, 'ALLOT_WATER 2 1:2');
         processComamnd(waterManagement, 'ADD_GUESTS 50');
         const val = processComamnd(waterManagement, 'BILL')
-        expect(val).toBe('15900 101700');
+        expect(val).toBe('15900 108700');
     })
     test("test BILL command with valid inputs - 3", () => {
         const waterManagement = new WaterState();
