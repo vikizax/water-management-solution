@@ -49,9 +49,11 @@ export default class WaterState {
         const totalGuests = this.getGuests();
         let remainingWater = totalGuests * WaterState.totalWaterPerPerson * 30;
         let tankerCost = 0;
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < WaterState.tankerWaterSlab.length; i++) {
             const waterCost = WaterState.tankerWaterCostPerSlabLitre[i];
-            const water = Math.min(remainingWater, WaterState.tankerWaterSlab[i]);
+            const usedWaterSlab = i - 1 < 0 ? 0 : WaterState.tankerWaterSlab[i - 1]
+            const currentWaterSlabRange = WaterState.tankerWaterSlab[i] - usedWaterSlab
+            const water = Math.min(remainingWater, currentWaterSlabRange);
             tankerCost += waterCost * water;
             remainingWater -= water;
             if (remainingWater <= 0)
