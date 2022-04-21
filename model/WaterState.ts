@@ -121,7 +121,7 @@ export default class WaterState {
             totalCost += tankerCost;
         }
         this.resetState();
-        return `${maxWaterLitre} ${totalCost}`
+        return `${maxWaterLitre} ${Math.ceil(totalCost)}`
     }
 }
 
