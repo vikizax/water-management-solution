@@ -49,9 +49,11 @@ export default class WaterState {
         const totalGuests = this.getGuests();
         let remainingWater = totalGuests * WaterState.totalWaterPerPerson * 30;
         let tankerCost = 0;
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < WaterState.tankerWaterSlab.length; i++) {
             const waterCost = WaterState.tankerWaterCostPerSlabLitre[i];
-            const water = Math.min(remainingWater, WaterState.tankerWaterSlab[i]);
+            const usedWaterSlab = i - 1 < 0 ? 0 : WaterState.tankerWaterSlab[i - 1]
+            const currentWaterSlabRange = WaterState.tankerWaterSlab[i] - usedWaterSlab
+            const water = Math.min(remainingWater, currentWaterSlabRange);
             tankerCost += waterCost * water;
             remainingWater -= water;
             if (remainingWater <= 0)
@@ -109,10 +111,10 @@ export default class WaterState {
         let maxWaterLitre = this.getAppartmentType() === 2 ? WaterState.totalWaterPerAppartmentType[2] : WaterState.totalWaterPerAppartmentType[3];
         const ratio = this.getWaterRatio();
         const ratioX = ratio.reduce((a, b) => a + b, 0);
-        const ratioXWaterPerLitre = maxWaterLitre / ratioX;
-        const corporateCost = ratioXWaterPerLitre * ratio[0] * WaterState.corporationWaterCostPerLitre;
-        const boreWellCost = ratioXWaterPerLitre * ratio[1] * WaterState.boreWellWaterCostPerLitre;
-        let totalCost = corporateCost + boreWellCost;
+        const ratioXWaterPerLitre = Math.round(maxWaterLitre / ratioX);
+        const corporateCost = Math.round(ratioXWaterPerLitre * ratio[0] * WaterState.corporationWaterCostPerLitre);
+        const boreWellCost = Math.round(ratioXWaterPerLitre * ratio[1] * WaterState.boreWellWaterCostPerLitre);
+        let totalCost = Math.round(corporateCost + boreWellCost);
         if (this.getGuests() > 0) {
             maxWaterLitre += this.getGuests() * WaterState.totalWaterPerPerson * 30;
             const tankerCost = this.getTankerWaterCostPL();

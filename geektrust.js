@@ -21,6 +21,5 @@ const lineReader = readline_1.default.createInterface({
  * @description read line by line where each line is process as command and their inputs
  */
 lineReader.on('line', (line) => {
-    const v = (0, process_command_1.processComamnd)(waterManagement, line);
-    console.log(v);
+    (0, process_command_1.processComamnd)(waterManagement, line);
 });
