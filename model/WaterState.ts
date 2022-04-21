@@ -111,17 +111,17 @@ export default class WaterState {
         let maxWaterLitre = this.getAppartmentType() === 2 ? WaterState.totalWaterPerAppartmentType[2] : WaterState.totalWaterPerAppartmentType[3];
         const ratio = this.getWaterRatio();
         const ratioX = ratio.reduce((a, b) => a + b, 0);
-        const ratioXWaterPerLitre = Math.round(maxWaterLitre / ratioX);
-        const corporateCost = Math.round(ratioXWaterPerLitre * ratio[0] * WaterState.corporationWaterCostPerLitre);
-        const boreWellCost = Math.round(ratioXWaterPerLitre * ratio[1] * WaterState.boreWellWaterCostPerLitre);
-        let totalCost = Math.round(corporateCost + boreWellCost);
+        const ratioXWaterPerLitre = maxWaterLitre / ratioX;
+        const corporateCost = ratioXWaterPerLitre * ratio[0] * WaterState.corporationWaterCostPerLitre;
+        const boreWellCost = ratioXWaterPerLitre * ratio[1] * WaterState.boreWellWaterCostPerLitre;
+        let totalCost = corporateCost + boreWellCost;
         if (this.getGuests() > 0) {
             maxWaterLitre += this.getGuests() * WaterState.totalWaterPerPerson * 30;
             const tankerCost = this.getTankerWaterCostPL();
             totalCost += tankerCost;
         }
         this.resetState();
-        return `${maxWaterLitre} ${totalCost}`
+        return `${maxWaterLitre} ${Math.ceil(totalCost)}`
     }
 }
 

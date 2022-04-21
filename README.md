@@ -1,3 +1,11 @@
+# Run code
+- Install dependencies & transpile
+
+        npm install
+- Start 
+        
+        npm start [command_file_path]
+
 # Problem Statement
 [SOURCE LINK](https://www.geektrust.com/coding/detailed/water-management)
 
